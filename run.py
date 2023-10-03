@@ -59,3 +59,38 @@ class Board:
                 if column == 'X':
                     count += 1
         return count
+
+    def play_game(self, turns=10):
+        """
+        Manages the gameplay loop, allowing the player 
+        to make guesses and tracking the game's progress.
+        """
+        self.create_ships()
+        while turns > 0:
+            print('Welcome to Battleships!')
+            self.print_board()
+            row, column = self.get_ship_location()
+            if self.guess_pattern[row][column] == '-':
+                print(' You already guessed that,\n please choose a new location ')
+            elif self.guess_pattern[row][column] == 'X':
+                print(' You already guessed that,\n please choose a new location ')
+            elif self.hidden_pattern[row][column] == 'X':
+                print(' Congratulations you have hit the battleship! ')
+                self.guess_pattern[row][column] = 'X'
+                turns -= 1
+            else:
+                print('Haha, You missed my ship! Try again!')
+                self.guess_pattern[row][column] = '-'
+                turns -= 1
+            if self.count_hit_ships() == 5:
+                print("Congratulations you have sunk all my battleships, great work! ")
+                break
+            print(' You have ' + str(turns) + ' turns remaining ')
+            if turns == 0:
+                print('Game Over ')
+
+def main():
+    battleship_board = Board()
+    battleship_board.play_game()
+
+main()
