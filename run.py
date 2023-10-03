@@ -1,9 +1,11 @@
 from random import randint
 
+
 class Board:
+
     def __init__(self, size=8):
         """
-        Creates the game board grid with the given size, 
+        Creates the game board grid with the given size,
         default 8 by 8.
         """
         self.size = size
@@ -62,7 +64,7 @@ class Board:
 
     def play_game(self, turns=10):
         """
-        Manages the gameplay loop, allowing the player 
+        Manages the gameplay loop, allowing the player
         to make guesses and tracking the game's progress.
         """
         self.create_ships()
@@ -89,8 +91,11 @@ class Board:
             if turns == 0:
                 print('Game Over ')
 
+
 def main():
+
     battleship_board = Board()
     battleship_board.play_game()
+
 
 main()
