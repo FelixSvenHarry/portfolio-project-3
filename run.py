@@ -27,11 +27,11 @@ class Board:
         Handels the players input for ship row and column location
         as well as catching potential errors when inputs are being made.
         """
-        row = input('Enter a ship row 1-8: ').upper()
+        row = input('Enter a ship row 1-8:\n ').upper()
         while row not in '12345678':
             print("Invalid integer, please enter a valid row ")
             row = input('Enter a ship row 1-8:\n')
-        column = input('Enter a ship column A-H: ').upper()
+        column = input('Enter a ship column A-H:\n ').upper()
         while column not in 'ABCDEFGH':
             print("Invalid value, please enter a valid column ")
             column = input('Enter a ship column A-H:\n')
