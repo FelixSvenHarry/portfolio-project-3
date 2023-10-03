@@ -36,5 +36,26 @@ class Board:
             print("Invalid value, please enter a valid column ")
             column = input('Enter a ship column A-H: ')
         return int(row) - 1, ord(column) - ord('A')
-    
-    
+
+    def create_ships(self):
+        """
+        Creates 5 ships randomly on the
+        hidden game board.
+        """
+        for ship in range(5):
+            ship_r, ship_cl = randint(0, 7), randint(0, 7)
+            while self.hidden_pattern[ship_r][ship_cl] == 'X':
+                ship_r, ship_cl = randint(0, 7), randint(0, 7)
+            self.hidden_pattern[ship_r][ship_cl] = 'X'
+
+    def count_hit_ships(self):
+        """
+        Counts the number of hit ships on the
+        guess pattern board and returns the value.
+        """
+        count = 0
+        for row in self.guess_pattern:
+            for column in row:
+                if column == 'X':
+                    count += 1
+        return count
