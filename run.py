@@ -30,11 +30,11 @@ class Board:
         row = input('Enter a ship row 1-8: ').upper()
         while row not in '12345678':
             print("Invalid integer, please enter a valid row ")
-            row = input('Enter a ship row 1-8: ')
+            row = input('Enter a ship row 1-8:\n')
         column = input('Enter a ship column A-H: ').upper()
         while column not in 'ABCDEFGH':
             print("Invalid value, please enter a valid column ")
-            column = input('Enter a ship column A-H: ')
+            column = input('Enter a ship column A-H:\n')
         return int(row) - 1, ord(column) - ord('A')
 
     def create_ships(self):
