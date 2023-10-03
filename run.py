@@ -21,6 +21,20 @@ class Board:
         for guess_row in self.guess_pattern:
             print("%d|%s|" % (row_num, "|".join(guess_row)))
             row_num += 1
-    
-    
 
+    def get_ship_location(self):
+        """
+        Handels the players input for ship row and column location
+        as well as catching potential errors when inputs are being made.
+        """
+        row = input('Enter a ship row 1-8: ').upper()
+        while row not in '12345678':
+            print("Invalid integer, please enter a valid row ")
+            row = input('Enter a ship row 1-8: ')
+        column = input('Enter a ship column A-H: ').upper()
+        while column not in 'ABCDEFGH':
+            print("Invalid value, please enter a valid column ")
+            column = input('Enter a ship column A-H: ')
+        return int(row) - 1, ord(column) - ord('A')
+    
+    
